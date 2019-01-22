@@ -1,6 +1,5 @@
 # dbt_project.yml
 
-name: fishtown_analytics
+name: simurgh_advisory
 version: '0.0.1'
-source-path: ["models"]
 profile: my-bigquery-db
