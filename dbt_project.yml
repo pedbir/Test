@@ -1,0 +1,6 @@
+# dbt_project.yml
+
+name: fishtown_analytics
+version: '0.0.1'
+source-path: ["models"]
+profile: my-bigquery-db
