@@ -1,13 +1,20 @@
 {{
 
-    config(materialized='table')
+    config(
+        materialized='incremental',
+        UNIQUE_KEY = 'unique_key'    
+    )
 }}
 
 with test as (
-    SELECT * FROM {{ ref('test') }}
+    SELECT * 
+    FROM {{ ref('v_crime') }}
 )
-
 SELECT * 
 FROM test
-WHERE string_field_0 = '0114 Upplands Väsby'
-LIMIT 1000
+{% if is_incremental() %}
+
+  -- this filter will only be applied on an incremental run
+  where timestamp >= (select max(timestamp) from {{ this }})
+
+{% endif %}

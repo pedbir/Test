@@ -1,0 +1,23 @@
+SELECT
+  unique_key,
+  address,
+  census_tract,
+  clearance_date,
+  clearance_status,
+  council_district_code,
+  description,
+  district,
+  latitude,
+  longitude,
+  location,
+  location_description,
+  primary_type,
+  timestamp,
+  x_coordinate,
+  y_coordinate,
+  year,
+  zipcode
+FROM
+  `dw-test-01-229320.dbt_prototype.crime`
+LIMIT
+  1000
